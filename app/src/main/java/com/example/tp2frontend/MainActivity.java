@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         usuario=findViewById(R.id.textNombreUsuario);
         password=findViewById(R.id.textPassword);
-        cargarUsuariosLogin();
+        //cargarUsuariosLogin();
     }
 
     public void btnEventoIngresar(View v) {
-        for (int i=0;i<lista.length;i++) {
+        /*for (int i=0;i<lista.length;i++) {
 
             //System.out.println(lista[i]);
             if(lista[i].getUsuarioLogin().equalsIgnoreCase(usuario.getText().toString())
@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             error = true;
-        }
+        }*/
 
         if(error) {
             Toast.makeText(
                     MainActivity.this,R.string.app_name,Toast.LENGTH_LONG).show();
         }
 
-        /*if (usuario.getText().toString().equalsIgnoreCase("admin")
+        if (usuario.getText().toString().equalsIgnoreCase("admin")
         && password.getText().toString().equalsIgnoreCase("123")) {
             Intent principalIntent=new Intent(this, SelectActivity.class);
             Bundle bundle=new Bundle();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(
                     MainActivity.this,R.string.credencialNoValida,Toast.LENGTH_LONG).show();
-        }*/
+        }
     }
 
     public void cargarUsuariosLogin() {
