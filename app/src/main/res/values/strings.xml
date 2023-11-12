@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Tp2FrontEnd</string>
+    <string name="usuario">Usuario</string>
+    <string name="password">Password</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="credencialNoValida">Usuario/password incorrectos</string>
+    <string name="email">Email</string>
+    <string name="estado">Estado</string>
+    <string name="genero">Género</string>
+    <string name="agregar">Agregar</string>
+    <string name="paciente">Pacientes</string>
+    <string name="reserva">Reservas</string>
+    <string name="ficha">Fichas</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="telefono">Telefono</string>
+    <string name="ruc">Ruc</string>
+    <string name="cedula">Cedula</string>
+    <string name="tipoPersona">Tipo Persona</string>
+    <string name="fechaNacimiento">Fecha de Nacimiento</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="agregarEmpleado">Agregar Empleado</string>
+    <string name="agregarCliente">Agregar Cliente</string>
+    <string name="fecha">Fecha</string>
+    <string name="buscarHora">Buscar Hora</string>
+    <string name="fechaDesde">Fecha Desde</string>
+    <string name="fechaHasta">Fecha Hasta</string>
+    <string name="modificar">Modificar</string>
+    <string name="observacion">Observación</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="asistio">Asistio</string>
+    <string name="agregarFisioterapeuta">Fisioterapeuta</string>
+    <string name="agregarPaciente">Paciente</string>
+    <string name="agregarCategoria">Categoria</string>
+    <string name="agregarSubCategoria">Tipo Producto</string>
+</resources>
