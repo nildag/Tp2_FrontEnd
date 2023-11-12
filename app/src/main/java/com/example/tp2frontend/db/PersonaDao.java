@@ -1,28 +1,26 @@
 package com.example.tp2frontend.db;
 
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+
+@Dao
 public interface PersonaDao {
-    /* falta pasar a Query
-    public Integer getIdPersona() {
-        return idPersona;
-    }
+    @Insert
+    void insert(Persona persona);
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
-    }
+    @Update
+    void update(Persona persona);
 
-    public String getNombre() {
-        return nombre;
-    }
+    @Query("SELECT * FROM Persona")
+    List<Persona> getAllPersonas();
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    @Query("SELECT * FROM Persona WHERE idPersona = :personaId")
+    Persona getPersonaById(int personaId);
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }*/
+    @Query("DELETE FROM Persona WHERE idPersona = :personaId")
+    void deletePersonaById(int personaId);
 }

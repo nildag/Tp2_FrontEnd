@@ -10,12 +10,14 @@ import java.util.List;
 
 @Dao
 public interface UsuarioDao {
+    @Query("SELECT * FROM usuario")
+    List<Usuario> getUsuarios();
     @Query("SELECT * FROM usuario WHERE id IN  (:usuarioIds)")
     List<Usuario> loadAllByIds(int[] usuarioIds);
     @Insert
-    void insert(Usuario usuario);
+    void insertUsuario(Usuario usuario);
     @Update
-    void update(Usuario usuario);
+    void updateUsuario(Usuario usuario);
     @Delete
-    void delete(Usuario usuario);
+    void deleteUsuario(Usuario usuario);
 }
