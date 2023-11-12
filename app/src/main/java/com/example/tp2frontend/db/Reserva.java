@@ -1,35 +1,77 @@
 package com.example.tp2frontend.db;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+@Entity(tableName = "reserva")
 public class Reserva {
-    @PrimaryKey
+
+    @PrimaryKey(autoGenerate = true)
     private Integer idReserva;
 
-    @ColumnInfo(name = "fechaCadena")
-    private String fechaCadena;
+    @ColumnInfo(name = "fechaReserva")
+    private String fechaReserva;
 
-    @ColumnInfo(name = "horaInicioCadena")
-    private String horaInicioCadena;
+    @ColumnInfo(name = "horaReserva")
+    private String horaReserva;
 
-    @ColumnInfo(name = "horaFinCadena")
-    private String horaFinCadena;
+    @ColumnInfo(name = "idMedico")
+    private Integer idMedico;
 
-    @ColumnInfo(name = "idEmpleado")//@ForeignKey()(?
-    private com.example.tp2frontend.db.Persona idEmpleado;
+    @ColumnInfo(name = "idPaciente")
+    private Integer idPaciente;
 
-    @ColumnInfo(name = "idCliente")
-    private Persona idCliente;
+    @ColumnInfo(name = "estadoReserva")
+    private String estadoReserva; // Podría ser "Activa", "Cancelada", etc.
 
-    @ColumnInfo(name = "flagAsistio")
-    private String flagAsistio;
+    // Getters y setters aquí...
 
-    @ColumnInfo(name = "observacion")
-    private String observacion;
+    public Integer getIdReserva() {
+        return idReserva;
+    }
 
-    @ColumnInfo(name = "flagEstado")
-    private String flagEstado;
+    public void setIdReserva(Integer idReserva) {
+        this.idReserva = idReserva;
+    }
 
+    public String getFechaReserva() {
+        return fechaReserva;
+    }
 
+    public void setFechaReserva(String fechaReserva) {
+        this.fechaReserva = fechaReserva;
+    }
+
+    public String getHoraReserva() {
+        return horaReserva;
+    }
+
+    public void setHoraReserva(String horaReserva) {
+        this.horaReserva = horaReserva;
+    }
+
+    public Integer getIdMedico() {
+        return idMedico;
+    }
+
+    public void setIdMedico(Integer idMedico) {
+        this.idMedico = idMedico;
+    }
+
+    public Integer getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(Integer idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public String getEstadoReserva() {
+        return estadoReserva;
+    }
+
+    public void setEstadoReserva(String estadoReserva) {
+        this.estadoReserva = estadoReserva;
+    }
 }
