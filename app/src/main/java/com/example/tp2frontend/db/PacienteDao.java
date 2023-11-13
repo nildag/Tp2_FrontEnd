@@ -12,7 +12,7 @@ import java.util.List;
 public interface PacienteDao {
     @Query("SELECT * FROM paciente")
     List<Paciente> getAll();
-    @Query("SELECT * FROM pacient WHERE id IN  (:pacienteIds)")
+    @Query("SELECT * FROM paciente WHERE idPersona IN  (:pacienteIds)")
     List<Paciente> loadAllByIds(int[] pacienteIds);
     @Insert
     void insertPaciente(Paciente paciente);

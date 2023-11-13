@@ -16,7 +16,7 @@ public interface PersonaDao {
     void update(Persona persona);
 
     @Query("SELECT * FROM Persona")
-    List<Persona> getAllPersonas();
+    List<Persona> getPersonas();
 
     @Query("SELECT * FROM Persona WHERE idPersona = :personaId")
     Persona getPersonaById(int personaId);

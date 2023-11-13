@@ -16,6 +16,8 @@ import com.example.tp2frontend.api.Paciente;
 import com.example.tp2frontend.api.PacienteUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +32,7 @@ public class PacientesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        value = getIntent().getExtras().getString("consulta");
+        value = Objects.requireNonNull(getIntent().getExtras()).getString("consulta");
         setContentView(R.layout.activity_paciente);
         rvPacientes=findViewById(R.id.rvListadoPacientes);
         fabNuevoPaciente=findViewById(R.id.fabNuevoPaciente);
@@ -85,6 +87,10 @@ public class PacientesActivity extends AppCompatActivity {
                 Log.e("s",t.toString());
             }
         });
+    }
+
+    public void cargarPacientesDesdeBd(){
+
     }
 
     private void showToast(String message){

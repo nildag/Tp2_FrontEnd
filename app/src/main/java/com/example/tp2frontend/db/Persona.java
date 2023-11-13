@@ -7,13 +7,18 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Persona {
     @PrimaryKey
-    private Integer idPersona;
+    private int idPersona;
 
     @ColumnInfo(name = "nombre")
     private String nombre;
 
     @ColumnInfo(name = "apellido")
     private String apellido;
+
+    public Persona(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
 
     public Integer getIdPersona() {
         return idPersona;
