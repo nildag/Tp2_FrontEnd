@@ -20,8 +20,8 @@ public class Paciente {
     public String ruc;
     @ColumnInfo(name = "cedula")
     public String cedula;
-    @ColumnInfo(name = "tipoPersona")
-    public String tipoPersona;
+    @ColumnInfo(name = "es Doctor")
+    public Boolean esDoctor;
     @ColumnInfo(name = "fechaNacimiento")
     public String fechaNacimiento;
     @ColumnInfo(name = "usuarioLogin")
@@ -85,12 +85,12 @@ public class Paciente {
         this.cedula = cedula;
     }
 
-    public String getTipoPersona() {
-        return tipoPersona;
+    public Boolean getEsDoctor() {
+        return esDoctor;
     }
 
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
+    public void setEsDoctor(String esDoctor) {
+        this.esDoctor = esDoctor;
     }
 
     public String getFechaNacimiento() {
