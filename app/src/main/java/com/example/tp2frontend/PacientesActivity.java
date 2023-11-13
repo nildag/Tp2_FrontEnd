@@ -2,7 +2,6 @@ package com.example.tp2frontend;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -10,23 +9,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tp2frontend.api.AdapterPaciente;
-import com.example.tp2frontend.api.DatosPaciente;
-import com.example.tp2frontend.api.Paciente;
-import com.example.tp2frontend.api.PacienteUtil;
+import com.example.tp2frontend.db.AdapterPaciente;
+import com.example.tp2frontend.db.MyApp;
+import com.example.tp2frontend.db.Paciente;
+import com.example.tp2frontend.db.PacienteDao;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
 import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class PacientesActivity extends AppCompatActivity {
     String value;
     private RecyclerView rvPacientes;
-    private AdapterPaciente adapterPaciente;
+    //private AdapterPaciente adapterPaciente;
     private FloatingActionButton fabNuevoPaciente;
 
     @Override
@@ -45,9 +41,10 @@ public class PacientesActivity extends AppCompatActivity {
         });
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         rvPacientes.setLayoutManager(layoutManager);
-        cargarPacientes();
+        //cargarPacientes();
+        cargarPacientesDesdeBd();
     }
-    public void invocarApi(View v) {
+    /*public void invocarApi(View v) {
         Call<DatosPaciente> callApi= PacienteUtil.getPacienteService().obtenerPacientes();
         callApi.enqueue(new Callback<DatosPaciente>() {
             @Override
@@ -63,9 +60,9 @@ public class PacientesActivity extends AppCompatActivity {
                 Log.e("s",t.toString());
             }
         });
-    }
+    }*/
 
-    public void cargarPacientes() {
+   /* public void cargarPacientes() {
         Call<DatosPaciente> callApi= PacienteUtil.getPacienteService().obtenerPacientesFiltro(value);
         callApi.enqueue(new Callback<DatosPaciente>() {
             @Override
@@ -87,10 +84,27 @@ public class PacientesActivity extends AppCompatActivity {
                 Log.e("s",t.toString());
             }
         });
-    }
+    }*/
 
     public void cargarPacientesDesdeBd(){
+        // Obtener el DAO de Paciente
+        PacienteDao pacienteDao = MyApp.get(this).getPacienteDao();
 
+        // Obtener la lista de pacientes desde la base de datos
+        List<Paciente> listaPacientes = pacienteDao.getAll();
+
+        // Crear y establecer el adaptador con la lista de pacientes
+        AdapterPaciente adapterPaciente = new AdapterPaciente(listaPacientes, new AdapterPaciente.ItemClickListener() {
+            @Override
+            public void onItemClick(Paciente paciente) {
+                // Ir a la página con los datos del paciente cargado y dos botones
+                // (Modificar y Eliminar)
+                showToast(paciente.getNombre());
+            }
+        });
+
+        // Configurar el RecyclerView con el adaptador
+        rvPacientes.setAdapter(adapterPaciente);
     }
 
     private void showToast(String message){

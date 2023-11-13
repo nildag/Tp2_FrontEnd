@@ -50,4 +50,8 @@ public class MyApp {
     public void deleteUsuario(Usuario usuario) {
         mAppDatabase.getUsuarioDao().deleteUsuario(usuario);
     }
+
+    public PacienteDao getPacienteDao() {
+        return mAppDatabase.getPacienteDao();
+    }
 }

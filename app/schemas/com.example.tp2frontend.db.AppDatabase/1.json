@@ -1,0 +1,214 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "400ed7173f386122589584771a4a021b",
+    "entities": [
+      {
+        "tableName": "usuario",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `name` TEXT, `email` TEXT, `gender` TEXT, `status` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gender",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Persona",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPersona` INTEGER NOT NULL, `nombre` TEXT, `apellido` TEXT, PRIMARY KEY(`idPersona`))",
+        "fields": [
+          {
+            "fieldPath": "idPersona",
+            "columnName": "idPersona",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "apellido",
+            "columnName": "apellido",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "idPersona"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Paciente",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPersona` INTEGER NOT NULL, `nombre` TEXT, `apellido` TEXT, `telefono` TEXT, `email` TEXT, `ruc` TEXT, `cedula` TEXT, `es Doctor` INTEGER, `fechaNacimiento` TEXT, `usuarioLogin` TEXT, PRIMARY KEY(`idPersona`))",
+        "fields": [
+          {
+            "fieldPath": "idPersona",
+            "columnName": "idPersona",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "apellido",
+            "columnName": "apellido",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telefono",
+            "columnName": "telefono",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ruc",
+            "columnName": "ruc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cedula",
+            "columnName": "cedula",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "esDoctor",
+            "columnName": "es Doctor",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fechaNacimiento",
+            "columnName": "fechaNacimiento",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "usuarioLogin",
+            "columnName": "usuarioLogin",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "idPersona"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "reserva",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idReserva` INTEGER PRIMARY KEY AUTOINCREMENT, `fechaReserva` TEXT, `horaReserva` TEXT, `idMedico` INTEGER, `idPaciente` INTEGER, `estadoReserva` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "idReserva",
+            "columnName": "idReserva",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fechaReserva",
+            "columnName": "fechaReserva",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "horaReserva",
+            "columnName": "horaReserva",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idMedico",
+            "columnName": "idMedico",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPaciente",
+            "columnName": "idPaciente",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "estadoReserva",
+            "columnName": "estadoReserva",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "idReserva"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '400ed7173f386122589584771a4a021b')"
+    ]
+  }
+}
