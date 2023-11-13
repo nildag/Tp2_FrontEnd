@@ -26,7 +26,4 @@ public interface PersonaIdDao {
     @Update
     void updatePersonaId(PersonaId personaId);
 
-    // Buscar una PersonaId por su idPersona
-    @Query("SELECT * FROM personaid WHERE idPersona = :idPersona")
-    PersonaId getPersonaIdById(Integer idPersona);
 }

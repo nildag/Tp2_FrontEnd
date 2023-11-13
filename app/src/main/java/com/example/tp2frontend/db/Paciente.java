@@ -89,7 +89,7 @@ public class Paciente {
         return esDoctor;
     }
 
-    public void setEsDoctor(String esDoctor) {
+    public void setEsDoctor(Boolean esDoctor) {
         this.esDoctor = esDoctor;
     }
 
